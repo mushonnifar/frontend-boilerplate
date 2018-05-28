@@ -1,6 +1,7 @@
 function loginTemplate(){
 return `
 	<div class="login-box">
+            <div class="loader loader-default "></div>
             <div class="login-logo">
                 <a href="#"><b>CQS</b> Boilerplate</a>
             </div>

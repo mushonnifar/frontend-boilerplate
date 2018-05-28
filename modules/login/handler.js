@@ -24,7 +24,8 @@ function loginProceedHandler() {
     $.ajax(settings)
             .done(function (response) {
                 saveToken(response.token);
-                deactivateLoader();
+//                getIdentity();
+//                deactivateLoader();
                 toastr.info(response.message, response.status, {
                     timeOut: 1000,
                     "closeButton": true,
@@ -51,7 +52,7 @@ function loginProceedHandler() {
 
             })
             .fail(function (response) {
-                deactivateLoader();
+//                deactivateLoader();
                 toastr.error(response.responseJSON.message, response.responseJSON.status, {
                     timeOut: 3000,
                     "closeButton": true,
@@ -72,4 +73,26 @@ function loginProceedHandler() {
                 });
             });
 
+}
+
+function getIdentity() {
+    var settings = {
+        "async": false,
+        "crossDomain": true,
+        "url": urlAPI + '/user/me/role',
+        "method": "GET",
+        "beforeSend": function (request) {
+            request.setRequestHeader("x-access-token", getToken());
+        }
+    };
+
+    $.ajax(settings)
+            .done(function (response) {
+//                console.log(response.data[0].nama_user);
+                $('.nama-user').text(response.data[0].nama_user);
+                deactivateLoader();
+            })
+            .fail(function (response) {
+
+            });
 }

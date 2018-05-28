@@ -21,10 +21,9 @@ function startApp() {
         console.log('No Token Detected');
         loadLoginContent();
     } else {
-        console.log('Token Detected');
-        getSidebar();
-        loadBodyContent();
-
+        console.log('Token Detected');        
+        loadBodyContent(); 
+//        getSidebar();
         var activeRoute = localStorage.getItem(appName + 'routeMenu');
         var activeMenuID = localStorage.getItem(appName + 'MenuID');
         var activeMenu = localStorage.getItem(appName + 'ActiveMenu');
@@ -70,6 +69,7 @@ function loadBodyContent() {
                 $(this).css('display', 'none');
                 next();
             });
+            getSidebar();
 }
 
 function handleAction(menuRoute, idMenu, menuName) {
@@ -117,7 +117,7 @@ function getActivePage() {
 function getSidebar() {
     var token = getToken();
     var settings = {
-        "async": true,
+        "async": false,
         "crossDomain": true,
         "url": urlAPI + '/menu/getmenu',
         "method": "GET",
@@ -128,7 +128,9 @@ function getSidebar() {
 
     $.ajax(settings)
             .done(function (response) {
+//                alert('asda');
                 sidebarHandler(response);
+                getIdentity();
             })
             .fail(function (response) {
                 localStorage.clear();
