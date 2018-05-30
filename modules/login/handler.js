@@ -25,7 +25,7 @@ function loginProceedHandler() {
             .done(function (response) {
                 saveToken(response.token);
 //                getIdentity();
-//                deactivateLoader();
+                deactivateLoader();
                 toastr.info(response.message, response.status, {
                     timeOut: 1000,
                     "closeButton": true,
@@ -52,7 +52,7 @@ function loginProceedHandler() {
 
             })
             .fail(function (response) {
-//                deactivateLoader();
+                deactivateLoader();
                 toastr.error(response.responseJSON.message, response.responseJSON.status, {
                     timeOut: 3000,
                     "closeButton": true,

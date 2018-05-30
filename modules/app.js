@@ -21,8 +21,8 @@ function startApp() {
         console.log('No Token Detected');
         loadLoginContent();
     } else {
-        console.log('Token Detected');        
-        loadBodyContent(); 
+        console.log('Token Detected');
+        loadBodyContent();
 //        getSidebar();
         var activeRoute = localStorage.getItem(appName + 'routeMenu');
         var activeMenuID = localStorage.getItem(appName + 'MenuID');
@@ -69,7 +69,7 @@ function loadBodyContent() {
                 $(this).css('display', 'none');
                 next();
             });
-            getSidebar();
+    getSidebar();
 }
 
 function handleAction(menuRoute, idMenu, menuName) {
@@ -96,7 +96,7 @@ function handleAction(menuRoute, idMenu, menuName) {
                 window[hTarget]();
                 $('#page-title').html(menuName);
             } catch (err) {
-                console.log('Function ' + hTarget + ' is not exist yet or ' + err)
+                console.log('Function ' + hTarget + ' is not exist yet or ' + err);
             }
             break;
     }
@@ -106,6 +106,11 @@ function setActivePage(menuRoute, idMenu, menuName) {
     localStorage.setItem(appName + 'routeMenu', menuRoute);
     localStorage.setItem(appName + 'MenuID', idMenu);
     localStorage.setItem(appName + 'ActiveMenu', menuName);
+    $('.parent').removeClass('active');
+    $('.child').removeClass('active');
+    var idList = menuName.replace(/\s/g, '');
+    $('#' + idList).closest(".parent").addClass("active");
+    $('#' + idList).addClass('active');    
 }
 
 function getActivePage() {
@@ -161,7 +166,7 @@ function logoutHandler() {
         }
     };
 
-    $.ajax(settings).done(function (response) {        
+    $.ajax(settings).done(function (response) {
         localStorage.clear();
         window.location.href = baseURL;
         deactivateLoader();

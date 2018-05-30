@@ -19,6 +19,7 @@ function loadTable(table, idTable, settingTable) {
 function reloadTable(table) {
     window[table].ajax.reload(function (response) {
         localStorage.setItem(appName + 'Token', response.token);
+        deactivateLoader();
     });
 }
 

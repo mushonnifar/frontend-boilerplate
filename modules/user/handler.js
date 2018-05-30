@@ -63,3 +63,7 @@ function editUserProperties(response) {
     $('[name="password"]').attr("placeholder", "*leave empy if you don't want to change password");
     $('[name="email"]').val(response.data.email);
 }
+
+function reloadUserTable(){
+    reloadTable('tableUser');
+}

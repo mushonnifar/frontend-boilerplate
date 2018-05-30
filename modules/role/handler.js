@@ -60,3 +60,7 @@ function editRoleProperties(response) {
     $('[name="name"]').val(response.data.name);
     $('[name="description"]').val(response.data.description);
 }
+
+function reloadRoleTable(){
+    reloadTable('tableRole');
+}
