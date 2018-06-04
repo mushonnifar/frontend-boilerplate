@@ -1,4 +1,4 @@
-var urlAPI = 'http://sonif.me/cqs-example/api/public';
+var urlAPI = 'http://sonif.me/backend-boilerplate/public';
 //var urlAPI = 'https://36.67.149.236:8415/cqs/api/public';
 var baseURL = 'http://sonif.me/cqs-example/ui-dev/public_html/';
 var appName = 'Dev';

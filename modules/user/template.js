@@ -14,6 +14,7 @@ function userTemplate(){
                             <th>NAMA</th>
                             <th>USERNAME</th>
                             <th>EMAIL</th>
+                            <th>ROLE</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>
@@ -62,6 +63,15 @@ function userTemplate(){
                             <label class="control-label col-md-3">EMAIL*</label>
                             <div class="col-md-9">
                                 <input name="email" placeholder="email" class="form-control" type="email">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group" id="group-role">
+                            <label class="control-label col-md-3">ROLE</label>
+                            <div class="col-md-9">
+                                <select class="form-control" name="role_id" id="select-role">
+                                    
+                                </select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
